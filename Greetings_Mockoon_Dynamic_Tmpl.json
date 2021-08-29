@@ -1,0 +1,374 @@
+{
+    "source": "mockoon:1.15.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 17,
+                "name": "Greeting API",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 3002,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "Get a greeting by ID",
+                        "method": "get",
+                        "endpoint": "greetings/:greetingId",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"id\": 1000,\n  \"message\": \"Hello Docker\",\n  \"creationDate\": \"2017-07-21T17:32:28Z\",\n  \"label\": \"key\",\n  \"isFriendly\": true,\n  \"weatherType\": \"{{oneOf (array '1' '2' '3')}}\",\n  \"status\": \"{{oneOf (array 'SMILEY_FACE' 'SAD_FACE')}}\"\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Success",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 401,
+                                "label": "Unauthorised",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 404,
+                                "label": "Not found error",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 405,
+                                "label": "Method not allowed",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 500,
+                                "label": "Internal server error",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": true,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "List greetings for the user",
+                        "method": "get",
+                        "endpoint": "greetings",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\n  {{#repeat (queryParam 'total' '5')}}\n  {\n    \"id\": {{@index}},\n    \"message\": \"{{faker 'lorem.sentence' 3 5}}\",\n    \"creationDate\": \"{{date '2020-11-20' '2020-11-25' \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\"}}\",\n    \"label\": \"key\",\n    \"isFriendly\": {{faker 'random.boolean'}},\n    \"weatherType\": \"{{oneOf (array '1' '2' '3')}}\",\n    \"status\": \"{{oneOf (array 'SMILEY_FACE' 'SAD_FACE')}}\"\n  }\n  {{/repeat}}\n]",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "Success",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 401,
+                                "label": "Unauthorised",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 403,
+                                "label": "Forbidden",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 405,
+                                "label": "Method not allowed",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 500,
+                                "label": "Internal server error",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "Create a greeting",
+                        "method": "post",
+                        "endpoint": "greetings",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"id\": \"{{faker 'random.uuid'}}\",\n  \"message\": \"{{body 'message'}}\",\n  \"creationDate\": \"{{date '2020-11-20' '2020-11-25' \"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'\"}}\",\n  \"label\": \"{{body 'label'}}\",\n  \"isFriendly\": {{body 'isFriendly'}},\n  \"weatherType\": {{body 'weatherType'}},\n  \"status\": \"{{body 'status'}}\"\n}",
+                                "latency": 0,
+                                "statusCode": 201,
+                                "label": "Greeting created",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 400,
+                                "label": "Bad request",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 401,
+                                "label": "Unauthorised",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 404,
+                                "label": "Not found error",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "",
+                                "latency": 0,
+                                "statusCode": 405,
+                                "label": "Method not allowed",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"errors\": [\n    {\n      \"code\": \"OB1401.005\",\n      \"message\": \"The message has not been provided\",\n      \"field\": \"message\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 500,
+                                "label": "Internal server error",
+                                "headers": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "https": false,
+                "cors": true,
+                "headers": [],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

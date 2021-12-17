@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mockoon
+  name: mockoon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mockoon
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mockoon
+    spec:
+      containers:
+      - image: shanelee007/mockoon-greeting-api:1.0.0
+        name: mockoon-greeting-api
+        resources: {}
+status: {}

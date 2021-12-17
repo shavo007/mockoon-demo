@@ -10,6 +10,6 @@ USER mockoon
 
 EXPOSE 3000
 
-ENTRYPOINT ["mockoon-cli", "start", "--hostname", "0.0.0.0", "--data", "data", "--daemon-off"]
+ENTRYPOINT ["mockoon-cli", "start", "--hostname", "0.0.0.0", "--data", "data", "-t", "--daemon-off"]
 
 # Usage: docker run -p <host_port>:<container_port> mockoon-test

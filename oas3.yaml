@@ -136,7 +136,7 @@ paths:
         - Greetings
       externalDocs:
         description: API method documentation
-        url: https://docs.pexa.com.au/v1/greetings/#create-a-greeting
+        url: https://docs.web.com.au/v1/greetings/#create-a-greeting
       parameters: []
       requestBody:
         description: "Create a greeting request"
